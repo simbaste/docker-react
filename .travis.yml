@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+defore_install:
+  - docker build -t simbaste/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI-true simbaste/docker-react npm run test
