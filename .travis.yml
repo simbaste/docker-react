@@ -7,3 +7,13 @@ defore_install:
 
 script:
   - docker run -e CI-true simbaste/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-north-1"
+  app: "docker-react"
+  env: "Docker-react-env"
+  bucket_name: "elasticbeanstalk-eu-north-1-183189324289"
+  bucket_path: "docker-react"
+  on:
+    branch: main
